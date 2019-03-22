@@ -7,6 +7,7 @@ class StudentsPage extends Component {
     this.props.fetchStudents()
   }
   render() {
+    console.log(this.props.students)
     return(
      <div>
        <p>hi</p>

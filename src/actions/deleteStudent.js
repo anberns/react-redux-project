@@ -12,6 +12,6 @@ export function deleteStudent(id) {
       })
     })
       .then(response => response.json())
-      .then(students => dispatch({ type: 'SHOW_STUDENTS', students}));
+      .then(students => dispatch({ type: 'DELETE_STUDENTS', students}));
   };
 }

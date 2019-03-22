@@ -14,6 +14,12 @@ export default function studentsReducer(state = initialState, action) {
           students: action.students
         }
       return state;
+    case "DELETE_STUDENT":
+      state = {
+        ...state,  
+          students: action.students
+        }
+      return state;
     default: 
         return state;
   }

@@ -4,6 +4,7 @@ import fetchStudents from '../actions/fetchStudents'
 import Students from '../Components/Students'
 import StudentInput from '../Components/StudentInput'
 import { addStudent } from '../actions/addStudent';
+import { deleteStudent } from '../actions/deleteStudent';
 
 class StudentsPage extends Component {
   componentDidMount() {
@@ -16,7 +17,10 @@ class StudentsPage extends Component {
           students={this.props.students} 
           />
         <hr></hr>
-        <StudentInput addStudent={this.props.addStudent}/>
+        <StudentInput 
+          addStudent={this.props.addStudent}
+          deleteStudent={this.props.deleteStudent}
+        />
       </div> 
     )
   }
@@ -31,6 +35,9 @@ const mapDispatchToProps = dispatch => {
     },
     addStudent: (student) => {
       dispatch(addStudent(student))
+    },
+    deleteStudent: (id) => {
+      dispatch(deleteStudent(id))
     }
   }
 }

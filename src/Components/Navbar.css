@@ -1,0 +1,14 @@
+.nav-styled {
+  background-color: lightskyblue;
+}
+
+.nav-brand-styled {
+  color: black;
+  font-family: 'OpenDyslexicRegular';
+  font-size: 1.5em;
+}
+
+.nav-link-styled {
+  color: black;
+  font-family: 'OpenDyslexicRegular';
+}

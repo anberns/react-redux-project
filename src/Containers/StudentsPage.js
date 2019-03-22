@@ -2,19 +2,20 @@ import React, { Component }from 'react';
 import { connect } from 'react-redux';
 import fetchStudents from '../actions/fetchStudents'
 import Students from '../Components/Students'
+import StudentInput from '../Components/Students'
 
 class StudentsPage extends Component {
   componentDidMount() {
     this.props.fetchStudents()
   }
   render() {
-    console.log(this.props.students)
     return(
       <div >
         <Students 
           students={this.props.students} 
           />
         <hr></hr>
+        <StudentInput />
       </div> 
     )
   }

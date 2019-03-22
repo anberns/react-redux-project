@@ -15,10 +15,6 @@ export default class Navbar extends Component {
           /* add prop for activeStyle */
         >Rapid Exchange</NavLink>
         <NavLink className="nav-item nav-link nav-link-styled"
-          to="/login"
-          exact
-        >Login</NavLink>
-        <NavLink className="nav-item nav-link nav-link-styled"
           to="/user"
           exact
         >Profile</NavLink>

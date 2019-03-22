@@ -22,6 +22,7 @@ class StudentsPage extends Component {
         <StudentInput 
           addStudent={this.props.addStudent}
         />
+        <p> </p>
       </div> 
     )
   }

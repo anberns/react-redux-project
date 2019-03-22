@@ -32,22 +32,22 @@ class StudentInput extends Component {
 
   render() {
     return (
-        <div className="add-student-card"> 
-          <h2>Add a Student</h2>
+        <div className="card add-student-card"> 
+          <h3 className="card-header student-header">Add Student</h3><br />
           <form onSubmit={(event) => this.handleOnSubmit(event)} >
             <label>Name</label><br />
             <input
               type="text"
               name="name"
               value={this.state.name}
-              onChange={(event) => this.handleOnChange(event)} /><br />
+              onChange={(event) => this.handleOnChange(event)} /><br /><br />
             <label>Stage</label><br /> 
             <input
               type="text"
               name="stage"
               value={this.state.stage}
-              onChange={(event) => this.handleOnChange(event)} /><br />
-            <input type="submit" />
+              onChange={(event) => this.handleOnChange(event)} /><br /><br />
+            <input className="btn btn-primary" type="submit" />
           </form>
         </div>
     );

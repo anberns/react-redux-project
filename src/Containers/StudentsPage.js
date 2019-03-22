@@ -2,7 +2,8 @@ import React, { Component }from 'react';
 import { connect } from 'react-redux';
 import fetchStudents from '../actions/fetchStudents'
 import Students from '../Components/Students'
-import StudentInput from '../Components/Students'
+import StudentInput from '../Components/StudentInput'
+import { addStudent } from '../actions/addStudent';
 
 class StudentsPage extends Component {
   componentDidMount() {
@@ -15,7 +16,7 @@ class StudentsPage extends Component {
           students={this.props.students} 
           />
         <hr></hr>
-        <StudentInput />
+        <StudentInput addStudent={this.props.addStudent}/>
       </div> 
     )
   }
@@ -27,6 +28,9 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchStudents: () => {
       dispatch(fetchStudents())
+    },
+    addStudent: (student) => {
+      dispatch(addStudent(student))
     }
   }
 }

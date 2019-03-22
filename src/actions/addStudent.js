@@ -14,6 +14,6 @@ export function addStudent(student) {
       })
     })
       .then(response => response.json())
-      .then(students => dispatch({ type: 'FETCH_STUDENTS', students}));
+      .then(students => dispatch({ type: 'ADD_STUDENT', students}));
   };
 }

@@ -7,8 +7,13 @@ export default function studentsReducer(state = initialState, action) {
       const updatedState = {
         ...state, students: action.students
       }
-      console.log(updatedState)
       return updatedState;
+    case "ADD_STUDENT":
+      state = {
+        ...state,  
+          students: action.students
+        }
+      return state;
     default: 
         return state;
   }

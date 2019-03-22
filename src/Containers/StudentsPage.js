@@ -15,11 +15,11 @@ class StudentsPage extends Component {
       <div >
         <Students 
           students={this.props.students} 
+          deleteStudent={this.props.deleteStudent}
           />
         <hr></hr>
         <StudentInput 
           addStudent={this.props.addStudent}
-          deleteStudent={this.props.deleteStudent}
         />
       </div> 
     )

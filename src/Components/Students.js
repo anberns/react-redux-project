@@ -13,7 +13,7 @@ export default class Students extends Component {
             key={student.id}
             name={student.name}
             stage={student.stage}
-            
+            deleteStudent={this.props.deleteStudent} 
           />
         </div>
       )

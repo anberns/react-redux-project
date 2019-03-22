@@ -5,6 +5,7 @@ import Students from '../Components/Students'
 import StudentInput from '../Components/StudentInput'
 import { addStudent } from '../actions/addStudent';
 import { deleteStudent } from '../actions/deleteStudent';
+import '../Components/Student.css'
 
 class StudentsPage extends Component {
   componentDidMount() {
@@ -12,7 +13,7 @@ class StudentsPage extends Component {
   }
   render() {
     return(
-      <div >
+      <div className="centered-div">
         <Students 
           students={this.props.students} 
           deleteStudent={this.props.deleteStudent}

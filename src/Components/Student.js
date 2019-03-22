@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Student.css'
 
 export default class Student extends Component {
   
@@ -9,10 +10,12 @@ export default class Student extends Component {
   render() {
     
     return (
-        <div >
-          <h1>{this.props.name}</h1>
-          <h2>{this.props.stage}</h2>
-          <button onClick={() => this.handleOnClickDelete()}>Delete</button>
+        <div className="card student-card">
+          <h3 className="card-header">{this.props.name}</h3>
+          <div className="card-body">
+            <h6>{this.props.stage}</h6>
+            <a href="#" className="btn btn-primary" onClick={() => this.handleOnClickDelete()}>Delete</a>
+          </div>
         </div>
     )
   }

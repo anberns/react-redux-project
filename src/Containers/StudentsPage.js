@@ -1,6 +1,7 @@
 import React, { Component }from 'react';
 import { connect } from 'react-redux';
 import fetchStudents from '../actions/fetchStudents'
+import Students from '../Components/Students'
 
 class StudentsPage extends Component {
   componentDidMount() {
@@ -9,9 +10,12 @@ class StudentsPage extends Component {
   render() {
     console.log(this.props.students)
     return(
-     <div>
-       <p>hi</p>
-     </div> 
+      <div >
+        <Students 
+          students={this.props.students} 
+          />
+        <hr></hr>
+      </div> 
     )
   }
 }

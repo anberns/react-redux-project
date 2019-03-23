@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import importedClasses from './ChoiceSelector.css';
-import phonemeClasses from '../../components/Phoneme/Phoneme.css';
-import Phoneme from '../../components/Phoneme/Phoneme.js';
+import phonemeClasses from '../Components/Phoneme.css';
+import Phoneme from '../Components/Phoneme.js';
 import update from 'immutability-helper';
 import Aux from '../../hoc/Aux/Aux';
 

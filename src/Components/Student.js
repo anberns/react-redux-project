@@ -14,7 +14,7 @@ export default class Student extends Component {
           <h3 className="card-header student-header">{this.props.name}</h3>
           <div className="card-body">
             <h6>{this.props.stage}</h6>
-            <a href="#" className="btn btn-primary" onClick={() => this.handleOnClickDelete()}>Delete</a>
+            <a href="#" className="btn btn-primary delete-button" onClick={() => this.handleOnClickDelete()}>Delete</a>
           </div>
         </div>
     )

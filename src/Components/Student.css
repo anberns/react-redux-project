@@ -3,9 +3,7 @@
   display: inline-block;
   width: 90%;
   background-color:#ccb3ff;
-  
   text-align: left;
-  
   box-shadow: 5px 5px 5px #888888;
   border-radius: 8px;
   cursor: pointer;
@@ -26,9 +24,7 @@ hr {
   display: inline-block;
   width: 80%;
   background-color:#bbff99; 
-  
   text-align: left;
-  
   box-shadow: 5px 5px 5px #888888;
   border-radius: 8px;
   cursor: pointer;
@@ -40,4 +36,9 @@ hr {
 .centered-div {
   text-align: center;
   margin: 0, auto;
+}
+
+.delete-button {
+  background-color: #ff4da6;
+  border: none;
 }

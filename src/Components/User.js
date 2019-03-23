@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Student.css'
 
-export default class User extends Component {
-  componentDidMount() {
-    this.props.fetchUser()
-  }
-  render() {
-    return (
-      <div className="centered-div">
-        <h1>{this.props.name}</h1>
-        <h2>{this.props.email}</h2>
-      </div>
-    )
-  }
-}
+const User = (props) => (
+  <div className="card student-card">
+    <h3 className="card-header student-header">{props.name}</h3>
+    <div className="card-body">
+      <h6>{props.email}</h6>
+    </div>
+  </div>
+
+)
+
+export default User;

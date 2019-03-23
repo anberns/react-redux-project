@@ -1,0 +1,15 @@
+.user-card {
+  font-family: 'OpenDyslexicRegular';
+  display: inline-block;
+  width: 80%;
+  background-color:#b3b3ff; 
+  text-align: left;
+  box-shadow: 5px 5px 5px #888888;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 15px;
+  margin-top: 30px;
+}
+.user-header {
+  background-color: white;
+}

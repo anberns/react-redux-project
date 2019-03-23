@@ -3,7 +3,6 @@ import Student from './Student';
 
 export default class Students extends Component {
   render() {
-    console.log(Object.values(this.props.students))
     const studentsArr = Object.values(this.props.students)[0]
     const studentList = studentsArr.map(student => {
       return (

@@ -3,7 +3,7 @@ import importedClasses from './ChoiceSelector.css';
 import phonemeClasses from '../Components/Phoneme.css';
 import Phoneme from '../Components/Phoneme.js';
 import update from 'immutability-helper';
-import Aux from '../../hoc/Aux/Aux';
+import Aux from './Aux';
 
 class ChoiceSelector extends Component {
     state = {

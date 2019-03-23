@@ -1,7 +1,8 @@
 import React from 'react';
+import ChoiceSelector from './ChoiceSelector'
 
 const HomePage = () => (
-  <p>Home</p>
+  <ChoiceSelector />
 )
 
 export default HomePage;

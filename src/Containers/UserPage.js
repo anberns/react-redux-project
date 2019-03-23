@@ -11,7 +11,7 @@ class UserPage extends Component {
   render() {
     return (
       <div className="centered-div">
-        <User data={this.props.user}/>
+        <User user={this.props.user.user}/>
       </div>
     )
   }

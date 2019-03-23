@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Student.css'
+import StudentHeader from './StudentHeader'
 
 export default class Student extends Component {
   
@@ -11,7 +12,7 @@ export default class Student extends Component {
     
     return (
         <div className="card student-card">
-          <h3 className="card-header student-header">{this.props.name}</h3>
+          <StudentHeader username={this.props.name} />
           <div className="card-body">
             <h6>{this.props.stage}</h6>
             <a href="#" className="btn btn-primary delete-button" onClick={() => this.handleOnClickDelete()}>Delete</a>

@@ -1,0 +1,29 @@
+.selectorDivCenter {
+  font-family: 'OpenDyslexicRegular';
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  font-size: 1.2rem;
+}
+.selectorDivJustify {
+  font-family: 'OpenDyslexicRegular';
+  width: 90%;
+  margin: auto;
+  text-align: justify;
+  font-size: 1.2rem;
+}
+.ownButton {
+    font-family: 'OpenDyslexicRegular';
+    text-align: center;
+    width: 150px;
+    height: 60px;
+    font-size: 1.4rem;
+    color: black;
+    background-color: LightSkyBlue;
+    text-align: center;
+    margin: 6px;
+    border: 2px solid black;
+    box-shadow: 5px 10px 8px #888888;
+    border-radius: 8px;
+    cursor: pointer;
+}

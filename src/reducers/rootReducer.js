@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-//import usersReducer from './usersReducer';
+import userReducer from './userReducer';
 import studentsReducer from './studentsReducer';
 
 const rootReducer = combineReducers({
-  //users: usersReducer,
+  user: userReducer,
   students: studentsReducer
 })
 

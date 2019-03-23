@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import User from '../Components/User'
-import './Student.css'
+import '../Components/Student.css'
 import { connect } from 'react-redux';
 import fetchUser from '../actions/fetchUser'
 

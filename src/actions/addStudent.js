@@ -1,4 +1,5 @@
 export function addStudent(student) {
+  console.log("C")
   return (dispatch) => {
     dispatch({ type: 'LOADING_ADD_STUDENT' });
     return fetch('http://localhost:3000/students', {
@@ -14,6 +15,10 @@ export function addStudent(student) {
       })
     })
       .then(response => response.json())
-      .then(students => dispatch({ type: 'ADD_STUDENT', students}));
+      .then(students => {
+        console.log("D")
+        dispatch({ type: 'ADD_STUDENT', students});
+      });
   };
+  console.log("E")
 }

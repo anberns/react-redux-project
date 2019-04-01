@@ -3,7 +3,7 @@ import './Student.css'
 import StudentHeader from './StudentHeader'
 
 export default class Student extends Component {
-  
+
   handleOnClickDelete() {
     this.props.deleteStudent(this.props.id)
   }
@@ -15,6 +15,7 @@ export default class Student extends Component {
           <StudentHeader username={this.props.name} />
           <div className="card-body">
             <h6>{this.props.stage}</h6>
+            <span>{this.state.counter}</span><br></br>
             <a href="#" className="btn btn-primary delete-button" onClick={() => this.handleOnClickDelete()}>Delete</a>
           </div>
         </div>

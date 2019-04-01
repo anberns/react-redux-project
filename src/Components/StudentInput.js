@@ -23,7 +23,9 @@ class StudentInput extends Component {
 
   handleOnSubmit(event) {
     event.preventDefault();
+    console.log("A")
     this.props.addStudent(this.state)
+    console.log("B")
     this.setState({
       name: '',
       stage: ''

@@ -4,10 +4,9 @@ const initialState = {
 export default function userReducer(state = initialState, action) {
   switch (action.type) {
     case "FETCH_USER":
-      const updatedState = {
+      return {
         ...state, user: action.user
       }
-      return updatedState;
     default: 
         return state;
   }

@@ -4,22 +4,19 @@ const initialState = {
 export default function studentsReducer(state = initialState, action) {
   switch (action.type) {
     case "FETCH_STUDENTS":
-      const updatedState = {
+      return {
         ...state, students: action.students
       }
-      return updatedState;
     case "ADD_STUDENT":
-      state = {
+      return {
         ...state,  
           students: action.students
         }
-      return state;
     case "DELETE_STUDENT":
-      state = {
+      return {
         ...state,  
           students: action.students
         }
-      return state;
     default: 
         return state;
   }

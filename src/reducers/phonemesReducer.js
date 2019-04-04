@@ -7,12 +7,12 @@ export default function phonemesReducer(state = initialState, action) {
       return {
         ...state, phonemes: action.phonemes
       }
-      /*
-    case "ADD_STUDENT":
+    case "LOAD_CHOSEN_PHONEMES":
       return {
         ...state,  
-          students: action.students
+          chosen: action.chosen
         }
+        /*
     case "DELETE_STUDENT":
       return {
         ...state,  

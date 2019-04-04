@@ -5,7 +5,7 @@ import './Phonemes.css';
 const phoneme = (props) => {
 
     return (
-        <button className={props.classes} id={props.id} value={props.characters} >{props.characters} </button>
+        <button name={props.classification} className={props.classes} id={props.id} value={props.characters} onClick={props.click} >{props.characters} </button>
     );
 }
 

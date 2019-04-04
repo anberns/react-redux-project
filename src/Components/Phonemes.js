@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Phoneme from './Phoneme';
+import './Phonemes.css';
 
 export default class Phonemes extends Component {
   render() {
@@ -26,14 +27,12 @@ export default class Phonemes extends Component {
 const createPhonemeList= ( arr, classification ) => {
   const list = arr.filter(phoneme => phoneme.classification === classification).map(phoneme => {
     return (
-      <div>
         <Phoneme
           id={phoneme.id}
           key={phoneme.id}
           characters={phoneme.characters}
           classification={phoneme.classification}
         />
-      </div>
     )
   })
   return list;

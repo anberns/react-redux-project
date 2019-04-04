@@ -6,6 +6,7 @@ import update from 'immutability-helper';
 import Aux from './Aux';
 import { connect } from 'react-redux';
 import fetchPhonemes from '../actions/fetchPhonemes'
+import Phonemes from '../Components/Phonemes'
 
 class ChoiceSelector extends Component {
   componentDidMount() {
@@ -13,7 +14,9 @@ class ChoiceSelector extends Component {
   }
   render() {
     return (
-      <p>{this.props.phonemes}</p>
+      <Phonemes
+        phonemes={this.props.phonemes} 
+      />
     )
   }
 }

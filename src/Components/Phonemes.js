@@ -4,6 +4,9 @@ import Phoneme from './Phoneme';
 export default class Phonemes extends Component {
   render() {
     const phonemesArr = Object.values(this.props.phonemes)[0]
+    const begList = phonemesArr.filter(phoneme => phoneme.classification === "beg")
+    const midList = phonemesArr.filter(phoneme => phoneme.classification === "mid")
+    const endList = phonemesArr.filter(phoneme => phoneme.classification === "end")
     const phonemeList = phonemesArr.map(phoneme => {
       return (
         <div>

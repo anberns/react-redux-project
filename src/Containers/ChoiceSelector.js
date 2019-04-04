@@ -4,6 +4,8 @@ import phonemeClasses from '../Components/Phoneme.css';
 import Phoneme from '../Components/Phoneme';
 import update from 'immutability-helper';
 import Aux from './Aux';
+import { connect } from 'react-redux';
+import fetchPhonemes from '../actions/fetchPhonemes'
 
 class ChoiceSelector extends Component {
   render() {
@@ -12,4 +14,13 @@ class ChoiceSelector extends Component {
     )
   }
 }
-export default ChoiceSelector;
+
+const mapStateToProps = state => ({ phonemes: state.phonemes})
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchPhonemes: () => {
+      dispatch(fetchPhonemes())
+    }
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ChoiceSelector);

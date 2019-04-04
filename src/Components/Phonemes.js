@@ -9,9 +9,7 @@ export default class Phonemes extends Component {
     chosenMid: [],
     chosenEnd: []
   }
-  componentDidUpdate() {
-    console.log(this.state)
-  }
+
   phonemeClickHandler = (e) => {
     e.preventDefault();
     switch(e.target.name) {
@@ -128,6 +126,15 @@ export default class Phonemes extends Component {
       default:
         break;
     }      
+  }
+
+  startExchange() {
+    const chosen = {
+      chosenBeg: this.state.chosenBeg,
+      chosenMid: this.state.chosenMid,
+      chosenEnd: this.state.chosenEnd
+    }
+    this.props.loadChosenPhonemes(chosen)
   }
 
   render() {

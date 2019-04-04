@@ -6,6 +6,7 @@ import update from 'immutability-helper';
 import Aux from './Aux';
 import { connect } from 'react-redux';
 import fetchPhonemes from '../actions/fetchPhonemes'
+import loadChosenPhonemes from '../actions/loadChosenPhonemes'
 import Phonemes from '../Components/Phonemes'
 
 class ChoiceSelector extends Component {

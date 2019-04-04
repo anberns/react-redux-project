@@ -63,8 +63,8 @@ export default class Phonemes extends Component {
     e.preventDefault();
     switch(e.target.id) {
       case "allB":
-        const pids = Object.values(this.props.phonemes)[0].filter((el) => el.classification === "beg")
-        const ids = pids.map((el) => el.id.toString());
+        let pids = Object.values(this.props.phonemes)[0].filter((el) => el.classification === "beg")
+        let ids = pids.map((el) => el.id.toString());
         if (this.state.chosenAll.includes(e.target.id)) {
           for (const i of ids) {
             document.getElementById(i).className = "choice"
@@ -83,7 +83,48 @@ export default class Phonemes extends Component {
           })
         }
         break;
-      
+      case "allM":
+        pids = Object.values(this.props.phonemes)[0].filter((el) => el.classification === "mid")
+        ids = pids.map((el) => el.id.toString());
+        if (this.state.chosenAll.includes(e.target.id)) {
+          for (const i of ids) {
+            document.getElementById(i).className = "choice"
+          }
+          this.setState({
+            chosenAll: [...this.state.chosenAll.filter((el) => el !== e.target.id)],
+            chosenMid: []
+          })
+        } else {
+          for (const i of ids) {
+            document.getElementById(i).className = "chosenMid"
+          }
+          this.setState({
+            chosenAll: [...this.state.chosenAll, e.target.id],
+            chosenMid: [...this.state.chosenMid, ...ids]
+          })
+        }
+        break;
+      case "allE":
+        pids = Object.values(this.props.phonemes)[0].filter((el) => el.classification === "end")
+        ids = pids.map((el) => el.id.toString());
+        if (this.state.chosenAll.includes(e.target.id)) {
+          for (const i of ids) {
+            document.getElementById(i).className = "choice"
+          }
+          this.setState({
+            chosenAll: [...this.state.chosenAll.filter((el) => el !== e.target.id)],
+            chosenEnd: []
+          })
+        } else {
+          for (const i of ids) {
+            document.getElementById(i).className = "chosenEnd"
+          }
+          this.setState({
+            chosenAll: [...this.state.chosenAll, e.target.id],
+            chosenEnd: [...this.state.chosenEnd, ...ids]
+          })
+        }
+        break; 
       default:
         break;
     }      
@@ -114,6 +155,7 @@ export default class Phonemes extends Component {
             classes="allMid"
             id="allM"
             characters="Select All Middle Sounds" 
+            click={(event) => this.selectAllClickHandler(event)}
           />
         </div>
         <div className="choiceDiv">
@@ -124,6 +166,7 @@ export default class Phonemes extends Component {
             classes="allEnd"
             id="allE"
             characters="Select All Ending Sounds" 
+            click={(event) => this.selectAllClickHandler(event)}
           />
         </div>
         <div className="choiceDiv">

@@ -4,7 +4,7 @@ import './Phonemes.css';
 
 export default class Phonemes extends Component {
   state = {
-    chosenAll: ["allB", "allM", "allE"],
+    chosenAll: [],
     chosenBeg: [],
     chosenMid: [],
     chosenEnd: []
@@ -59,6 +59,36 @@ export default class Phonemes extends Component {
     }      
   }
 
+  selectAllClickHandler = (e) => {
+    e.preventDefault();
+    switch(e.target.id) {
+      case "allB":
+        const pids = Object.values(this.props.phonemes)[0].filter((el) => el.classification === "beg")
+        const ids = pids.map((el) => el.id.toString());
+        if (this.state.chosenAll.includes(e.target.id)) {
+          for (const i of ids) {
+            document.getElementById(i).className = "choice"
+          }
+          this.setState({
+            chosenAll: [...this.state.chosenAll.filter((el) => el !== e.target.id)],
+            chosenBeg: []
+          })
+        } else {
+          for (const i of ids) {
+            document.getElementById(i).className = "chosenBeg"
+          }
+          this.setState({
+            chosenAll: [...this.state.chosenAll, e.target.id],
+            chosenBeg: [...this.state.chosenBeg, ...ids]
+          })
+        }
+        break;
+      
+      default:
+        break;
+    }      
+  }
+
   render() {
     const phonemesArr = Object.values(this.props.phonemes)[0]
     const begList = createPhonemeList(phonemesArr, "beg", (event) => this.phonemeClickHandler(event))
@@ -73,6 +103,7 @@ export default class Phonemes extends Component {
             classes="allBeg"
             id="allB"
             characters="Select All Beginning Sounds" 
+            click={(event) => this.selectAllClickHandler(event)}
           />
         </div>
         <div className="choiceDiv">

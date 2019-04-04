@@ -8,11 +8,17 @@ export default class Phonemes extends Component {
     const midList = createPhonemeList(phonemesArr, "mid")
     const endList = createPhonemeList(phonemesArr, "end")
     return (
-      <ul>
-        {begList}
-        {midList}
-        {endList}
-      </ul>
+      <React.Fragment>
+        <div className="choiceDiv">
+          {begList}
+        </div>
+        <div className="choiceDiv">
+          {midList}
+        </div>
+        <div className="choiceDiv">
+          {endList}
+        </div>
+      </React.Fragment>
     )
   }
 }

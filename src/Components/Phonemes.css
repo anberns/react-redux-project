@@ -5,3 +5,134 @@
   font-size: 1.2rem;
   text-align: center;
 }
+.selectorDivCenter {
+  font-family: 'OpenDyslexicRegular';
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  font-size: 1.2rem;
+}
+.Phoneme {
+  font-family: 'OpenDyslexicRegular';
+  display: inline-block;
+  padding: 24px;
+  font-size: 150px;
+  color: dodgerblue;
+  background-color: lightyellow;
+  text-align: center;
+  margin: 6px;
+  border: 2px solid black;
+  border-radius: 8px;
+  box-shadow: 5px 5px 5px #888888;
+  cursor: pointer;
+}
+
+
+.choice {
+  font-family: 'OpenDyslexicRegular';
+  display: inline-block;
+  font-size: 1.7rem;
+  width: 60px;
+  height: 60px;
+  color: black;
+  background-color: lightgray;
+  text-align: center;
+  margin: 6px;
+  border: 2px solid black;
+  box-shadow: 5px 5px 5px #888888;
+  border-radius: 8px;
+  cursor: pointer;
+
+}
+.chosenBeg {
+  font-family: 'OpenDyslexicRegular';
+  display: inline-block;
+  font-size: 1.7rem;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  margin: 6px;
+  border: 2px solid black;
+  border-radius: 8px;
+  box-shadow: 5px 5px 5px #888888;
+  cursor: pointer;
+  background-color: lightgreen;
+  color: black;
+}
+
+.chosenMid {
+  font-family: 'OpenDyslexicRegular';
+  display: inline-block;
+  font-size: 1.7rem;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  margin: 6px;
+  border: 2px solid black;
+  border-radius: 8px;
+  box-shadow: 5px 5px 5px #888888;
+  cursor: pointer;
+  background-color: lightsalmon;
+  color: black;
+}
+
+.chosenEnd {
+  font-family: 'OpenDyslexicRegular';
+  display: inline-block;
+  font-size: 1.7rem;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  margin: 6px;
+  border: 2px solid black;
+  border-radius: 8px;
+  box-shadow: 5px 5px 5px #888888;
+  cursor: pointer;
+  background-color: plum;
+  color: black;
+}
+.allBeg {
+  font-family: 'OpenDyslexicRegular';
+  display: inline-block;
+  width: 350px;
+  height: 60px;
+  font-size: 1.4rem;
+  text-align: center;
+  margin: 6px;
+  border: 2px solid black;
+  border-radius: 8px;
+  box-shadow: 5px 5px 5px #888888;
+  cursor: pointer;
+  background-color: lightgreen;
+  color: black;
+}
+.allMid {
+  font-family: 'OpenDyslexicRegular';
+  display: inline-block;
+  width: 350px;
+  height: 60px;
+  font-size: 1.4rem;
+  text-align: center;
+  margin: 6px;
+  border: 2px solid black;
+  border-radius: 8px;
+  box-shadow: 5px 5px 5px #888888;
+  cursor: pointer;
+  background-color: lightsalmon;
+  color: black;
+}
+.allEnd {
+  font-family:'OpenDyslexicRegular';
+  display: inline-block;
+  width: 350px;
+  height: 60px;
+  font-size: 1.4rem;
+  text-align: center;
+  margin: 6px;
+  border: 2px solid black;
+  border-radius: 8px;
+  box-shadow: 5px 5px 5px #888888;
+  cursor: pointer;
+  background-color: plum;
+  color: black;
+}

@@ -8,9 +8,12 @@ import { connect } from 'react-redux';
 import fetchPhonemes from '../actions/fetchPhonemes'
 
 class ChoiceSelector extends Component {
+  componentDidMount() {
+    this.props.fetchPhonemes();
+  }
   render() {
     return (
-      <p>Placeholder</p>
+      <p>{this.props.phonemes}</p>
     )
   }
 }

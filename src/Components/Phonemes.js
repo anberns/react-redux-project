@@ -172,6 +172,9 @@ export default class Phonemes extends Component {
         <div className="choiceDiv">
           {endList}
         </div>
+        <div className="selectorDivCenter">
+            <button onClick={this.startExchange} className="ownButton">Start</button>
+          </div>
       </React.Fragment>
     )
   }

@@ -26,6 +26,9 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchPhonemes: () => {
       dispatch(fetchPhonemes())
+    },
+    loadChosenPhonemes: (chosen) => {
+      dispatch(loadChosenPhonemes(chosen))
     }
   }
 }

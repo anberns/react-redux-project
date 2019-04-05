@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import loadPhonemeChoices from '../actions/loadPhonemeChoices'
 import Phoneme from './Phoneme';
 import './Phonemes.css';
 
-export default class Phonemes extends Component {
+class Phonemes extends Component {
   state = {
     chosenAll: [],
     chosenBeg: [],
@@ -128,13 +131,15 @@ export default class Phonemes extends Component {
     }      
   }
 
-  startExchange() {
+  startClickHandler(e) {
+    e.preventDefault()
     const chosen = {
       chosenBeg: this.state.chosenBeg,
       chosenMid: this.state.chosenMid,
       chosenEnd: this.state.chosenEnd
     }
-    this.props.loadChosenPhonemes(chosen)
+    this.props.loadChosenPhonemes(chosen);
+    console.log("hi")
   }
 
   render() {
@@ -180,7 +185,7 @@ export default class Phonemes extends Component {
           {endList}
         </div>
         <div className="selectorDivCenter">
-            <button onClick={this.startExchange} className="ownButton">Start</button>
+            <button onClick={(event) => this.startClickHandler(event)} className="ownButton">Start</button>
           </div>
       </React.Fragment>
     )
@@ -204,3 +209,17 @@ const createPhonemeList= ( arr, classification, click ) => {
   })
   return list;
 }
+
+const mapStateToProps = state => ({
+  chosenBeg: state.chosenBeg,
+  chosenMid: state.chosendMid,
+  chosenEnd: state.chosenEnd 
+})
+const mapDispatchToProps = dispatch => {
+  return {
+    loadPhonemeChoices: () => {
+      dispatch(loadPhonemeChoices())
+    }
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Phonemes);

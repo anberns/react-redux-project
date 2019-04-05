@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import loadPhonemeChoices from '../actions/loadPhonemeChoices'
+import addPhonemeChoices from '../actions/addPhonemeChoices'
 import Phoneme from './Phoneme';
 import './Phonemes.css';
 
@@ -14,10 +14,8 @@ class Phonemes extends Component {
     e.preventDefault();
     switch(e.target.name) {
       case "beg":
-        if (this.state.chosenBeg.includes(e.target.id)) {
-          this.setState({
-            chosenBeg: [...this.state.chosenBeg.filter((el) => el !== e.target.id)]
-          })
+        if (this.props.chosenBeg.includes(e.target.id)) {
+          this.addChosenPhonemes([e.target.id])
           e.target.className = "choice";
         } else {
           this.setState({
@@ -215,7 +213,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return {
     loadPhonemeChoices: (chosen) => {
-      dispatch(loadPhonemeChoices(chosen))
+      dispatch(addPhonemeChoices(chosen))
     }
   }
 }

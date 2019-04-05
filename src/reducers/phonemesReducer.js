@@ -11,7 +11,6 @@ export default function phonemesReducer(state = initialState, action) {
         ...state, phonemes: action.phonemes
       }
     case "ADD_PHONEME_CHOICES":
-      console.log("hi")
       switch(action.stage) {
         case "beg":
           return {

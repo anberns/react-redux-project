@@ -16,7 +16,6 @@ class Phonemes extends Component {
   }
   phonemeClickHandler = (e) => {
     e.preventDefault();
-    console.log(this.props)
     switch(e.target.name) {
       case "beg":
         if (this.props.chosenBeg.includes(e.target.id)) {
@@ -54,7 +53,7 @@ class Phonemes extends Component {
     e.preventDefault();
     switch(e.target.id) {
       case "allB":
-        let pids = Object.values(this.props.phonemes)[0].filter((el) => el.classification === "beg")
+        let pids = Object.values(this.props.phonemes).filter((el) => el.classification === "beg")
         let ids = pids.map((el) => el.id.toString());
         if (this.state.chosenAll.includes(e.target.id)) {
           for (const i of ids) {
@@ -62,20 +61,20 @@ class Phonemes extends Component {
           }
           this.setState({
             chosenAll: [...this.state.chosenAll.filter((el) => el !== e.target.id)],
-            chosenBeg: []
           })
+          this.props.removePhonemeChoices(ids, "beg")
         } else {
           for (const i of ids) {
             document.getElementById(i).className = "chosenBeg"
           }
           this.setState({
             chosenAll: [...this.state.chosenAll, e.target.id],
-            chosenBeg: [...this.state.chosenBeg, ...ids]
           })
+          this.props.addPhonemeChoices(ids, "beg")
         }
         break;
       case "allM":
-        pids = Object.values(this.props.phonemes)[0].filter((el) => el.classification === "mid")
+        pids = Object.values(this.props.phonemes).filter((el) => el.classification === "mid")
         ids = pids.map((el) => el.id.toString());
         if (this.state.chosenAll.includes(e.target.id)) {
           for (const i of ids) {
@@ -83,20 +82,20 @@ class Phonemes extends Component {
           }
           this.setState({
             chosenAll: [...this.state.chosenAll.filter((el) => el !== e.target.id)],
-            chosenMid: []
           })
+          this.props.removePhonemeChoices(ids, "mid")
         } else {
           for (const i of ids) {
             document.getElementById(i).className = "chosenMid"
           }
           this.setState({
             chosenAll: [...this.state.chosenAll, e.target.id],
-            chosenMid: [...this.state.chosenMid, ...ids]
           })
+          this.props.addPhonemeChoices(ids, "mid")
         }
         break;
       case "allE":
-        pids = Object.values(this.props.phonemes)[0].filter((el) => el.classification === "end")
+        pids = Object.values(this.props.phonemes).filter((el) => el.classification === "end")
         ids = pids.map((el) => el.id.toString());
         if (this.state.chosenAll.includes(e.target.id)) {
           for (const i of ids) {
@@ -104,16 +103,16 @@ class Phonemes extends Component {
           }
           this.setState({
             chosenAll: [...this.state.chosenAll.filter((el) => el !== e.target.id)],
-            chosenEnd: []
           })
+          this.props.removePhonemeChoices(ids, "end")
         } else {
           for (const i of ids) {
             document.getElementById(i).className = "chosenEnd"
           }
           this.setState({
             chosenAll: [...this.state.chosenAll, e.target.id],
-            chosenEnd: [...this.state.chosenEnd, ...ids]
           })
+          this.props.addPhonemeChoices(ids, "end")
         }
         break; 
       default:

@@ -15,7 +15,7 @@ class Phonemes extends Component {
     switch(e.target.name) {
       case "beg":
         if (this.props.chosenBeg.includes(e.target.id)) {
-          this.addChosenPhonemes([e.target.id])
+          this.addChosenPhonemes([e.target.id], "beg")
           e.target.className = "choice";
         } else {
           this.setState({
@@ -128,13 +128,7 @@ class Phonemes extends Component {
 
   startClickHandler(e) {
     e.preventDefault()
-    const chosen = {
-      chosenBeg: this.state.chosenBeg,
-      chosenMid: this.state.chosenMid,
-      chosenEnd: this.state.chosenEnd
-    }
-    this.props.loadChosenPhonemes(chosen);
-    console.log("hi")
+    
   }
 
   render() {
@@ -212,8 +206,8 @@ const mapStateToProps = state => ({
 })
 const mapDispatchToProps = dispatch => {
   return {
-    loadPhonemeChoices: (chosen) => {
-      dispatch(addPhonemeChoices(chosen))
+    loadPhonemeChoices: (chosen, stage) => {
+      dispatch(addPhonemeChoices(chosen, stage))
     }
   }
 }

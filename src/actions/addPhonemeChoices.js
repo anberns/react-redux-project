@@ -1,5 +1,5 @@
-export default function addPhonemeChoices(chosen) {
+export default function addPhonemeChoices(chosen, stage) {
   return (dispatch) => {
-    dispatch({ type: 'ADD_PHONEME_CHOICES', chosen });
+    dispatch({ type: 'ADD_PHONEME_CHOICES', chosen, stage });
   };
 }

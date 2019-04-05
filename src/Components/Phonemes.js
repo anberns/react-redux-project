@@ -16,31 +16,32 @@ class Phonemes extends Component {
   }
   phonemeClickHandler = (e) => {
     e.preventDefault();
+    console.log(this.props)
     switch(e.target.name) {
       case "beg":
         if (this.props.chosenBeg.includes(e.target.id)) {
-          this.removeChosenPhonemes([e.target.id], "beg")
+          this.props.removePhonemeChoices([e.target.id], "beg")
           e.target.className = "choice";
         } else {
-          this.addChosenPhonemes([e.target.id], "beg")
+          this.props.addPhonemeChoices([e.target.id], "beg")
           e.target.className = "chosenBeg";
         }
         break;
       case "mid":
         if (this.props.chosenMid.includes(e.target.id)) {
-          this.removeChosenPhonemes([e.target.id], "mid")
+          this.props.removePhonemeChoices([e.target.id], "mid")
           e.target.className = "choice";
         } else {
-          this.addChosenPhonemes([e.target.id], "mid")
+          this.props.addPhonemeChoices([e.target.id], "mid")
           e.target.className = "chosenMid";
         }
         break;
       case "end":
         if (this.props.chosenEnd.includes(e.target.id)) {
-          this.removeChosenPhonemes([e.target.id], "end")
+          this.props.removePhonemeChoices([e.target.id], "end")
           e.target.className = "choice";
         } else {
-          this.addChosenPhonemes([e.target.id], "end")
+          this.props.addPhonemeChoices([e.target.id], "end")
           e.target.className = "chosenEnd";
         }
         break;

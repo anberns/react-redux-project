@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+import fetchPhonemes from '../actions/fetchPhonemes'
 import addPhonemeChoices from '../actions/addPhonemeChoices'
 import removePhonemeChoices from '../actions/removePhonemeChoices'
 import Phoneme from './Phoneme';
@@ -9,6 +10,9 @@ import './Phonemes.css';
 class Phonemes extends Component {
   state = {
     chosenAll: []
+  }
+  componentDidMount() {
+    this.props.fetchPhonemes();
   }
 
   phonemeClickHandler = (e) => {
@@ -24,28 +28,20 @@ class Phonemes extends Component {
         }
         break;
       case "mid":
-        if (this.state.chosenMid.includes(e.target.id)) {
-          this.setState({
-            chosenMid: [...this.state.chosenMid.filter((el) => el !== e.target.id)]
-          })
+        if (this.props.chosenMid.includes(e.target.id)) {
+          this.removeChosenPhonemes([e.target.id], "mid")
           e.target.className = "choice";
         } else {
-          this.setState({
-            chosenMid: [...this.state.chosenMid, e.target.id]
-          })
+          this.addChosenPhonemes([e.target.id], "mid")
           e.target.className = "chosenMid";
         }
         break;
       case "end":
-        if (this.state.chosenEnd.includes(e.target.id)) {
-          this.setState({
-            chosenEnd: [...this.state.chosenEnd.filter((el) => el !== e.target.id)]
-          })
+        if (this.props.chosenEnd.includes(e.target.id)) {
+          this.removeChosenPhonemes([e.target.id], "end")
           e.target.className = "choice";
         } else {
-          this.setState({
-            chosenEnd: [...this.state.chosenEnd, e.target.id]
-          })
+          this.addChosenPhonemes([e.target.id], "end")
           e.target.className = "chosenEnd";
         }
         break;
@@ -127,11 +123,14 @@ class Phonemes extends Component {
 
   startClickHandler(e) {
     e.preventDefault()
+    console.log("start")
     
   }
 
   render() {
+    console.log(this.props.phonemes)
     const phonemesArr = Object.values(this.props.phonemes)[0]
+    console.log(phonemesArr)
     const begList = createPhonemeList(phonemesArr, "beg", (event) => this.phonemeClickHandler(event))
     const midList = createPhonemeList(phonemesArr, "mid", (event) => this.phonemeClickHandler(event))
     const endList = createPhonemeList(phonemesArr, "end", (event) => this.phonemeClickHandler(event))
@@ -199,12 +198,16 @@ const createPhonemeList= ( arr, classification, click ) => {
 }
 
 const mapStateToProps = state => ({
+  phonemes: state.phonemes,
   chosenBeg: state.chosenBeg,
   chosenMid: state.chosendMid,
   chosenEnd: state.chosenEnd 
 })
 const mapDispatchToProps = dispatch => {
   return {
+    fetchPhonemes: () => {
+      dispatch(fetchPhonemes())
+    },
     addPhonemeChoices: (chosen, stage) => {
       dispatch(addPhonemeChoices(chosen, stage))
     },

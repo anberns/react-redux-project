@@ -9,24 +9,14 @@ import fetchPhonemes from '../actions/fetchPhonemes'
 import Phonemes from '../Components/Phonemes'
 
 class ChoiceSelector extends Component {
-  componentDidMount() {
-    this.props.fetchPhonemes();
-  }
+  
   render() {
     return (
       <Phonemes
-        phonemes={this.props.phonemes} 
       />
     )
   }
 }
 
-const mapStateToProps = state => ({ phonemes: state.phonemes})
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchPhonemes: () => {
-      dispatch(fetchPhonemes())
-    }
-  }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(ChoiceSelector);
+
+export default ChoiceSelector;

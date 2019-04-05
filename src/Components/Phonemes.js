@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import addPhonemeChoices from '../actions/addPhonemeChoices'
+import removePhonemeChoices from '../actions/removePhonemeChoices'
 import Phoneme from './Phoneme';
 import './Phonemes.css';
 
@@ -15,12 +16,10 @@ class Phonemes extends Component {
     switch(e.target.name) {
       case "beg":
         if (this.props.chosenBeg.includes(e.target.id)) {
-          this.addChosenPhonemes([e.target.id], "beg")
+          this.removeChosenPhonemes([e.target.id], "beg")
           e.target.className = "choice";
         } else {
-          this.setState({
-            chosenBeg: [...this.state.chosenBeg, e.target.id]
-          })
+          this.addChosenPhonemes([e.target.id], "beg")
           e.target.className = "chosenBeg";
         }
         break;
@@ -206,8 +205,11 @@ const mapStateToProps = state => ({
 })
 const mapDispatchToProps = dispatch => {
   return {
-    loadPhonemeChoices: (chosen, stage) => {
+    addPhonemeChoices: (chosen, stage) => {
       dispatch(addPhonemeChoices(chosen, stage))
+    },
+    removePhonemeChoices: (chosen, stage) => {
+      dispatch(removePhonemeChoices(chosen, stage))
     }
   }
 }

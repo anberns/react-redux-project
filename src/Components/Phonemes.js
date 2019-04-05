@@ -7,10 +7,7 @@ import './Phonemes.css';
 
 class Phonemes extends Component {
   state = {
-    chosenAll: [],
-    chosenBeg: [],
-    chosenMid: [],
-    chosenEnd: []
+    chosenAll: []
   }
 
   phonemeClickHandler = (e) => {
@@ -217,8 +214,8 @@ const mapStateToProps = state => ({
 })
 const mapDispatchToProps = dispatch => {
   return {
-    loadPhonemeChoices: () => {
-      dispatch(loadPhonemeChoices())
+    loadPhonemeChoices: (chosen) => {
+      dispatch(loadPhonemeChoices(chosen))
     }
   }
 }

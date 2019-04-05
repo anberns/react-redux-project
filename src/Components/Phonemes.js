@@ -14,7 +14,6 @@ class Phonemes extends Component {
   componentDidMount() {
     this.props.fetchPhonemes();
   }
-
   phonemeClickHandler = (e) => {
     e.preventDefault();
     switch(e.target.name) {
@@ -128,9 +127,7 @@ class Phonemes extends Component {
   }
 
   render() {
-    console.log(this.props.phonemes)
-    const phonemesArr = Object.values(this.props.phonemes)[0]
-    console.log(phonemesArr)
+    const phonemesArr = this.props.phonemes
     const begList = createPhonemeList(phonemesArr, "beg", (event) => this.phonemeClickHandler(event))
     const midList = createPhonemeList(phonemesArr, "mid", (event) => this.phonemeClickHandler(event))
     const endList = createPhonemeList(phonemesArr, "end", (event) => this.phonemeClickHandler(event))
@@ -198,10 +195,10 @@ const createPhonemeList= ( arr, classification, click ) => {
 }
 
 const mapStateToProps = state => ({
-  phonemes: state.phonemes,
-  chosenBeg: state.chosenBeg,
-  chosenMid: state.chosendMid,
-  chosenEnd: state.chosenEnd 
+  phonemes: state.phonemes.phonemes,
+  chosenBeg: state.phonemes.chosenBeg,
+  chosenMid: state.phonemes.chosenMid,
+  chosenEnd: state.phonemes.chosenEnd 
 })
 const mapDispatchToProps = dispatch => {
   return {

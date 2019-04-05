@@ -30,13 +30,47 @@ export default function phonemesReducer(state = initialState, action) {
         default:
           return;
       }
-        /*
-    case "DELETE_STUDENT":
-      return {
-        ...state,  
-          students: action.students
-        }
-        */
+    case "REMOVE_CHOSEN_PHONEMES":
+      switch(action.stage) {
+        case "beg":
+          const currentChosenBeg = [...state.chosenBeg];
+          const updatedChosenBeg = [];
+          for (const i of currentChosenBeg) {
+            if (!action.chosen.include(i)) {
+              updatedChosenBeg.push(i);
+            } 
+          }
+          return {
+            ...state,  
+              chosenBeg: updatedChosenBeg
+          } 
+        case "mid":
+          const currentChosenMid = [...state.chosenMid];
+          const updatedChosenMid = [];
+          for (const i of currentChosenMid) {
+            if (!action.chosen.include(i)) {
+              updatedChosenMid.push(i);
+            } 
+          }
+          return {
+            ...state,  
+              chosenMid: updatedChosenMid
+          }
+        case "end":
+          const currentChosenEnd= [...state.chosenEnd];
+          const updatedChosenEnd= [];
+          for (const i of currentChosenEnd) {
+            if (!action.chosen.include(i)) {
+              updatedChosenEnd.push(i);
+            } 
+          }
+          return {
+            ...state,  
+              chosenEnd: updatedChosenEnd
+          }
+        default:
+          return;
+      }
     default: 
         return state;
   }

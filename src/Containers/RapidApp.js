@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Phoneme from '../Components/Phoneme'
-import '../Components/Phonemes.css';
+import '../Components/Phoneme.css';
 
 class RapidApp extends Component {
 
@@ -14,10 +14,11 @@ class RapidApp extends Component {
     ],
     // chosen phonemes for beg, mid, end respectively from redux store
     phonemeLists: [
-        { list: this.props.chosenBeg },
-        { list: this.props.chosenMid  },
-        { list: this.props.chosenEnd }
+      { list: [] },
+      { list: [] },
+      { list: [] }
     ],
+
     // current index of displayed phoneme from phonemeLists
     soundPositions: [
         { position: 0 },
@@ -64,12 +65,38 @@ class RapidApp extends Component {
     }
   }
 
-  // call setup functions
-  startExchange = () => {
-    this.loadPhonemes();
-    this.shufflePhonemes();
-    this.loadInitialSounds();
+  convertPhonemeLists = () => {
+    const begs = [];
+    const mids = [];
+    const ends = [];
+    for (const i of this.props.chosenBeg) {
+      begs.push(this.props.phonemeObjects[i - 1].characters)
+    }
+    for (const i of this.props.chosenMid) {
+      mids.push(this.props.phonemeObjects[i-1].characters)
+    }
+    for (const i of this.props.chosenEnd) {
+      ends.push(this.props.phonemeObjects[i-1].characters)
+    }
+    this.setState({
+      phonemeLists: [
+        { list: [...begs] },
+        { list: [...mids] },
+        { list: [...ends] }
+      ]
+    })
+
   }
+
+  // call setup functions
+  componentDidMount() {
+    console.log(this.props)
+    this.convertPhonemeLists();
+    console.log(this.state)
+    this.shufflePhonemes();
+    this.loadInitialPhonemes();
+  }
+
 
   // handles v-e toggle button click by adding / subtracting "e" card to end
   eHandler = () => {
@@ -86,24 +113,27 @@ class RapidApp extends Component {
   }
 
   render() {
+
     return (
-      <React.fragment>
+      <div>
         <div className="selectorDivCenter">
             {this.state.phonemes.map((phoneme, index) => {
                 return <Phoneme
-                content={phoneme.content}
-                className="Phoneme"
+                characters={phoneme.content}
+                classes="Phoneme"
                 vowel={phoneme.vowel}
                 click={() => this.updateSound(index)}
                 />
             })}
           </div>
-      </React.fragment>
+      </div>
     )
   }
 }
 
+
 const mapStateToProps = state => ({
+  phonemeObjects: state.phonemes.phonemes,
   chosenBeg: state.phonemes.chosenBeg,
   chosenMid: state.phonemes.chosenMid,
   chosenEnd: state.phonemes.chosenEnd 

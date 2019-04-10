@@ -26,7 +26,7 @@ class RapidApp extends Component {
   }
 
   // copies first phoneme from each list to each phoneme box
-  loadInitialSounds = () => {
+  loadInitialPhonemes= () => {
     const phonemes = [...this.state.phonemes];
     phonemes[0].content = this.state.phonemeLists[0].list[0];
     phonemes[1].content = this.state.phonemeLists[1].list[0];
@@ -46,6 +46,13 @@ class RapidApp extends Component {
         }
     }
     this.setState({phonemeLists: phonemeLists});
+  }
+
+  // call setup functions
+  startExchange = () => {
+    this.loadPhonemes();
+    this.shufflePhonemes();
+    this.loadInitialSounds();
   }
 
   render() {

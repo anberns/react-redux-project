@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 
 class RapidApp extends Component {
 
@@ -34,4 +35,11 @@ class RapidApp extends Component {
   }
 }
 
-export default RapidApp;
+const mapStateToProps = state => ({
+  phonemes: state.phonemes.phonemes,
+  chosenBeg: state.phonemes.chosenBeg,
+  chosenMid: state.phonemes.chosenMid,
+  chosenEnd: state.phonemes.chosenEnd 
+})
+
+export default connect(mapStateToProps)(RapidApp);

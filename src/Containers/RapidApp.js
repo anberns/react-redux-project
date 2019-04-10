@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import Phoneme from '../Components/Phoneme'
+import '../Components/Phonemes.css';
 
 class RapidApp extends Component {
 
@@ -48,6 +50,20 @@ class RapidApp extends Component {
     this.setState({phonemeLists: phonemeLists});
   }
 
+  // updates clicked phoneme card with next value from list
+  updateSound = (soundIndex) => {
+    const phonemes = [...this.state.phonemes];
+    const positions = [...this.state.soundPositions];
+    const phonemeLists = [...this.state.phonemeLists];
+    const maxIndex = phonemeLists[soundIndex].list.length -1;
+    if (positions[soundIndex].position < maxIndex) {
+        positions[soundIndex].position++;
+        phonemes[soundIndex].content = phonemeLists[soundIndex].list[positions[soundIndex].position];
+        this.setState({phonemes: phonemes});
+        this.setState({soundPositions: positions});
+    }
+  }
+
   // call setup functions
   startExchange = () => {
     this.loadPhonemes();
@@ -71,9 +87,18 @@ class RapidApp extends Component {
 
   render() {
     return (
-      <div>
-        Hi
-      </div>
+      <React.fragment>
+        <div className="selectorDivCenter">
+            {this.state.phonemes.map((phoneme, index) => {
+                return <Phoneme
+                content={phoneme.content}
+                className="Phoneme"
+                vowel={phoneme.vowel}
+                click={() => this.updateSound(index)}
+                />
+            })}
+          </div>
+      </React.fragment>
     )
   }
 }

@@ -12,9 +12,9 @@ class RapidApp extends Component {
     ],
     // chosen phonemes for beg, mid, end respectively
     phonemeLists: [
-        { list: [...this.state.chosenBeg] },
-        { list: [...this.state.chosenMid]  },
-        { list: [...this.state.chosenEnd] }
+        { list: this.props.chosenBeg },
+        { list: this.props.chosenMid  },
+        { list: this.props.chosenEnd }
     ],
     // current index of displayed phoneme from phonemeLists
     soundPositions: [
@@ -24,12 +24,14 @@ class RapidApp extends Component {
     ],
     eToggle: false // v-e card displayed
   }
+  componentDidMount() {
+    console.log(this.state)
+  }
 
   render() {
-  
     return (
       <div>
-        {this.state.phonemeLists}
+        Hi
       </div>
     )
   }

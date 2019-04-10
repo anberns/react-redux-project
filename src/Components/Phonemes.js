@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import fetchPhonemes from '../actions/fetchPhonemes'
 import addPhonemeChoices from '../actions/addPhonemeChoices'
@@ -169,7 +169,12 @@ class Phonemes extends Component {
           {endList}
         </div>
         <div className="selectorDivCenter">
-            <button onClick={(event) => this.startClickHandler(event)} className="ownButton">Start</button>
+          <NavLink 
+            to={"/rapid_app"}
+            exact
+            >
+              <button className="ownButton">Start</button>
+              </NavLink>
           </div>
       </React.Fragment>
     )

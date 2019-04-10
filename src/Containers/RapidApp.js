@@ -10,7 +10,7 @@ class RapidApp extends Component {
       { content: "", vowel: true },
       { content: "", vowel: false }
     ],
-    // chosen phonemes for beg, mid, end respectively
+    // chosen phonemes for beg, mid, end respectively from redux store
     phonemeLists: [
         { list: this.props.chosenBeg },
         { list: this.props.chosenMid  },
@@ -24,8 +24,14 @@ class RapidApp extends Component {
     ],
     eToggle: false // v-e card displayed
   }
-  componentDidMount() {
-    console.log(this.state)
+
+  // copies first phoneme from each list to each phoneme box
+  loadInitialSounds = () => {
+    const phonemes = [...this.state.phonemes];
+    phonemes[0].content = this.state.phonemeLists[0].list[0];
+    phonemes[1].content = this.state.phonemeLists[1].list[0];
+    phonemes[2].content = this.state.phonemeLists[2].list[0];
+    this.setState({phonemes: phonemes}); 
   }
 
   render() {
@@ -38,7 +44,6 @@ class RapidApp extends Component {
 }
 
 const mapStateToProps = state => ({
-  phonemes: state.phonemes.phonemes,
   chosenBeg: state.phonemes.chosenBeg,
   chosenMid: state.phonemes.chosenMid,
   chosenEnd: state.phonemes.chosenEnd 

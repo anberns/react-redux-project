@@ -55,6 +55,20 @@ class RapidApp extends Component {
     this.loadInitialSounds();
   }
 
+  // handles v-e toggle button click by adding / subtracting "e" card to end
+  eHandler = () => {
+    const toggle = this.state.eToggle;
+    const phonemes = [...this.state.phonemes];
+    if (!toggle) {
+        phonemes.push({ content: "e" });
+    }
+    else {
+        phonemes.pop();
+    }
+    this.setState({phonemes: phonemes});
+    this.setState({eToggle: !toggle});
+  }
+
   render() {
     return (
       <div>

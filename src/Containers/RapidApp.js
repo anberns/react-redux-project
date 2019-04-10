@@ -34,6 +34,20 @@ class RapidApp extends Component {
     this.setState({phonemes: phonemes}); 
   }
 
+  // shuffle loads phoneme lists
+  shufflePhonemes = () => {
+    const phonemeLists = [...this.state.phonemeLists];
+    for (let index = 0; index < phonemeLists.length; index++) {
+        for (let i = phonemeLists[index].list.length -1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            let temp = phonemeLists[index].list[i];
+            phonemeLists[index].list[i] = phonemeLists[index].list[j];
+            phonemeLists[index].list[j] = temp;
+        }
+    }
+    this.setState({phonemeLists: phonemeLists});
+  }
+
   render() {
     return (
       <div>

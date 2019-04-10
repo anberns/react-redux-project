@@ -27,7 +27,9 @@ class RapidApp extends Component {
   render() {
   
     return (
-      />
+      <div>
+        {this.state.phonemeLists}
+      </div>
     )
   }
 }

@@ -4,6 +4,7 @@ import StudentsPage from './Containers/StudentsPage';
 import HomePage from './Containers/HomePage';
 import UserPage from './Containers/UserPage'
 import Navbar from './Components/Navbar'
+import RapidApp from './Containers/RapidApp'
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/users/1" component={UserPage} />
           <Route exact path="/users/1/students" component={StudentsPage} />
+          <Route exact path="/rapid_app" component={RapidApp} />
         </React.Fragment>
       </Router>)
   }

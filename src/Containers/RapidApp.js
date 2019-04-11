@@ -115,6 +115,9 @@ class RapidApp extends Component {
                 />
             })}
           </div>
+          <div className="selectorDivCenter">
+            <button onClick={this.eHandler} className="ownButton">v-e</button>
+          </div>
       </div>
     )
   }

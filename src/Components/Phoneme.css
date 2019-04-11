@@ -1,10 +1,10 @@
-.Phoneme {
+.phoneme {
   font-family: 'OpenDyslexicRegular';
   display: inline-block;
   padding: 24px;
-  font-size: 150px;
-  color: dodgerblue;
-  background-color: lightyellow;
+  font-size: 5em;
+  color: royalblue;
+  background-color: lemonchiffon;
   text-align: center;
   margin: 6px;
   border: 2px solid black;

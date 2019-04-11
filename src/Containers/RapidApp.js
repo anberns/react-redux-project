@@ -121,7 +121,7 @@ class RapidApp extends Component {
             {this.state.phonemes.map((phoneme, index) => {
                 return <Phoneme
                 characters={phoneme.content}
-                classes="Phoneme"
+                classes="phoneme"
                 vowel={phoneme.vowel}
                 click={() => this.updateSound(index)}
                 />
@@ -129,7 +129,7 @@ class RapidApp extends Component {
           </div>
           <div className="selectorDivCenter">
             <button onClick={this.eHandler} className="ownButton">v-e</button>
-            <button onClick={this.reloadHandler} className="ownButton">Reload</button>
+            <button onClick={this.reloadHandler} className="ownButton voilet">Reload</button>
           </div>
       </div>
     )

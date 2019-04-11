@@ -101,6 +101,18 @@ class RapidApp extends Component {
     this.setState({eToggle: !toggle});
   }
 
+  reloadHandler = () => {
+    this.shufflePhonemes();
+    this.loadInitialPhonemes();
+    this.setState({
+      soundPositions: [
+      { position: 0 },
+      { position: 0 },
+      { position: 0 }
+      ],
+    })
+  }
+
   render() {
 
     return (
@@ -117,6 +129,7 @@ class RapidApp extends Component {
           </div>
           <div className="selectorDivCenter">
             <button onClick={this.eHandler} className="ownButton">v-e</button>
+            <button onClick={this.reloadHandler} className="ownButton">Reload</button>
           </div>
       </div>
     )

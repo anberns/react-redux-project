@@ -1,18 +1,56 @@
-.phoneme {
-  font-family: 'OpenDyslexicRegular';
-  display: inline-block;
-  padding: 24px;
-  font-size: 5em;
-  color: royalblue;
-  background-color: lemonchiffon;
-  text-align: center;
-  margin: 6px;
-  border: 2px solid black;
-  border-radius: 8px;
-  box-shadow: 5px 5px 5px #888888;
-  cursor: pointer;
+/* smartphone */
+@media only screen and (min-width: 375px) and (max-width: 667px) {
+  .phoneme {
+    font-family: 'OpenDyslexicRegular';
+    display: inline-block;
+    padding: 8px;
+    font-size: 3em;
+    color: royalblue;
+    background-color: lemonchiffon;
+    text-align: center;
+    margin: 2px;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px #888888;
+    cursor: pointer;
+  }
 }
 
+/* ipad */
+@media only screen and (min-width: 668px) and (max-width: 1024px) {
+  .phoneme {
+    font-family: 'OpenDyslexicRegular';
+    display: inline-block;
+    padding: 24px;
+    font-size: 4em;
+    color: royalblue;
+    background-color: lemonchiffon;
+    text-align: center;
+    margin: 6px;
+    border: 2px solid black;
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px #888888;
+    cursor: pointer;
+  }
+}
+
+/* pc */
+@media only screen and (min-width: 1025px) {
+  .phoneme {
+    font-family: 'OpenDyslexicRegular';
+    display: inline-block;
+    padding: 24px;
+    font-size: 5em;
+    color: royalblue;
+    background-color: lemonchiffon;
+    text-align: center;
+    margin: 6px;
+    border: 2px solid black;
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px #888888;
+    cursor: pointer;
+  }
+}
 
 .choice {
   font-family: 'OpenDyslexicRegular';

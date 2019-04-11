@@ -5,28 +5,44 @@ import '../Components/Phoneme.css';
 
 class RapidApp extends Component {
 
-  state = {
-    // phoneme cards that display beg, mid, end phonemes respectively
-    phonemes: [
-      { content: "", vowel: false },
-      { content: "", vowel: true },
-      { content: "", vowel: false }
-    ],
-    // chosen phonemes for beg, mid, end respectively from redux store
-    phonemeLists: [
-      { list: [] },
-      { list: [] },
-      { list: [] }
-    ],
+  constructor(props) {
+    super(props);
+      const begs = [];
+      const mids = [];
+      const ends = [];
+      for (const i of this.props.chosenBeg) {
+        begs.push(this.props.phonemeObjects[i - 1].characters)
+      }
+      for (const i of this.props.chosenMid) {
+        mids.push(this.props.phonemeObjects[i-1].characters)
+      }
+      for (const i of this.props.chosenEnd) {
+        ends.push(this.props.phonemeObjects[i-1].characters)
+      }
+      this.state = {
+        // phoneme cards that display beg, mid, end phonemes respectively
+        phonemes: [
+          { content: "", vowel: false },
+          { content: "", vowel: true },
+          { content: "", vowel: false }
+        ],
+        // chosen phonemes for beg, mid, end respectively from redux store
+        phonemeLists: [
+          { list: begs },
+          { list: mids },
+          { list: ends }
+        ],
 
-    // current index of displayed phoneme from phonemeLists
-    soundPositions: [
-        { position: 0 },
-        { position: 0 },
-        { position: 0 }
-    ],
-    eToggle: false // v-e card displayed
-  }
+        // current index of displayed phoneme from phonemeLists
+        soundPositions: [
+            { position: 0 },
+            { position: 0 },
+            { position: 0 }
+        ],
+        eToggle: false // v-e card displayed
+      }
+      this.convertPhonemeLists()
+    }
 
   // copies first phoneme from each list to each phoneme box
   loadInitialPhonemes= () => {
@@ -80,9 +96,9 @@ class RapidApp extends Component {
     }
     this.setState({
       phonemeLists: [
-        { list: [...begs] },
-        { list: [...mids] },
-        { list: [...ends] }
+        { list: begs },
+        { list: mids },
+        { list: ends }
       ]
     })
 
@@ -90,8 +106,6 @@ class RapidApp extends Component {
 
   // call setup functions
   componentDidMount() {
-    console.log(this.props)
-    this.convertPhonemeLists();
     console.log(this.state)
     this.shufflePhonemes();
     this.loadInitialPhonemes();

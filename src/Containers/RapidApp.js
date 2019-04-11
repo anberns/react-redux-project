@@ -41,7 +41,6 @@ class RapidApp extends Component {
         ],
         eToggle: false // v-e card displayed
       }
-      this.convertPhonemeLists()
     }
 
   // copies first phoneme from each list to each phoneme box
@@ -81,32 +80,8 @@ class RapidApp extends Component {
     }
   }
 
-  convertPhonemeLists = () => {
-    const begs = [];
-    const mids = [];
-    const ends = [];
-    for (const i of this.props.chosenBeg) {
-      begs.push(this.props.phonemeObjects[i - 1].characters)
-    }
-    for (const i of this.props.chosenMid) {
-      mids.push(this.props.phonemeObjects[i-1].characters)
-    }
-    for (const i of this.props.chosenEnd) {
-      ends.push(this.props.phonemeObjects[i-1].characters)
-    }
-    this.setState({
-      phonemeLists: [
-        { list: begs },
-        { list: mids },
-        { list: ends }
-      ]
-    })
-
-  }
-
   // call setup functions
   componentDidMount() {
-    console.log(this.state)
     this.shufflePhonemes();
     this.loadInitialPhonemes();
   }

@@ -22,9 +22,9 @@ class RapidApp extends Component {
       this.state = {
         // phoneme cards that display beg, mid, end phonemes respectively
         phonemes: [
-          { content: "", vowel: false },
-          { content: "", vowel: true },
-          { content: "", vowel: false }
+          { content: "", vowel: false, clickable: true },
+          { content: "", vowel: true, clickable: true},
+          { content: "", vowel: false, clickable: true }
         ],
         // chosen phonemes for beg, mid, end respectively from redux store
         phonemeLists: [
@@ -92,7 +92,7 @@ class RapidApp extends Component {
     const toggle = this.state.eToggle;
     const phonemes = [...this.state.phonemes];
     if (!toggle) {
-        phonemes.push({ content: "e" });
+        phonemes.push({ content: "e", vowel: false, clickable: false });
     }
     else {
         phonemes.pop();
@@ -123,7 +123,7 @@ class RapidApp extends Component {
                 characters={phoneme.content}
                 classes="phoneme"
                 vowel={phoneme.vowel}
-                click={() => this.updateSound(index)}
+                click={phoneme.clickable ? () => this.updateSound(index) : null}
                 />
             })}
           </div>

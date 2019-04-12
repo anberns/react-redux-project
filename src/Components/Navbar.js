@@ -12,6 +12,7 @@ const Navbar = () => (
       </button>
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav">
+          <NavItem path="/choose" linkName="App" className="nav-item nav-link" />
           <NavItem path="/users/1" linkName="Profile" className="nav-item nav-link"/>
           <NavItem path="/users/1/students" linkName="Students" className="nav-item nav-link" />
         </div>

@@ -1,9 +1,9 @@
 import React from 'react';
-import ChoiceSelector from './ChoiceSelector'
+import Auth from './Auth/Auth'
 
 const HomePage = () => (
   <div>
-    hi
+    <Auth />
   </div>
 )
 

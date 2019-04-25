@@ -1,3 +1,4 @@
+// needs form validation
 import React, { Component } from 'react'
 import '../ChoiceSelector.css'
 
@@ -33,7 +34,7 @@ export default class extends Component {
       <div className="selectorDivCenter">
         <form>
           <br></br>
-          <label>email</label>
+          <label>Email</label>
           <br></br>
           <input 
             type="email" 
@@ -43,7 +44,7 @@ export default class extends Component {
           />
           <br></br>
           <br></br>
-          <label>password</label>
+          <label>Password</label>
           <br></br>
           <input 
             type="password" 

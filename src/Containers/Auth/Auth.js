@@ -1,8 +1,10 @@
 // needs form validation
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import authFetch from '../../actions/authFetch';
 import '../ChoiceSelector.css'
 
-export default class extends Component {
+class Auth extends Component {
   state = {
     email: "",
     password: ""
@@ -17,15 +19,9 @@ export default class extends Component {
     });
   }
 
-  handleOnSubmit(event) {
+  submitHandler(event) {
     event.preventDefault();
-    console.log("A")
-    this.props.addStudent(this.state)
-    console.log("B")
-    this.setState({
-      name: '',
-      stage: ''
-    });
+    this.props.authFetch(this.state.email, this.state.password);
   }
 
   render() {
@@ -53,9 +49,19 @@ export default class extends Component {
             onChange={ (event) => this.handleOnChange(event)}
           />
           <br></br>
-          <button onClick={ this.submitHandler} className="ownButton">Login</button>
+          <button onClick={ (event) => this.submitHandler(event)} className="ownButton">Login</button>
         </form>
       </div>
     )
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    authFetch: (email, password) => {
+      dispatch(authFetch(email, password))
+    }
+  }
+}
+
+export default connect(mapDispatchToProps)(Auth);

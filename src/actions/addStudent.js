@@ -1,9 +1,8 @@
 export function addStudent(student) {
-  console.log("C")
   return (dispatch) => {
     dispatch({ type: 'LOADING_ADD_STUDENT' });
-    return fetch('http://localhost:3000/students', {
-    //return fetch('https://rapid-exchange-api.herokuapp.com/students/create', {
+    //return fetch('http://localhost:3000/students', {
+    return fetch('https://rapid-exchange-api.herokuapp.com/students/', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -16,9 +15,7 @@ export function addStudent(student) {
     })
       .then(response => response.json())
       .then(students => {
-        console.log("D")
         dispatch({ type: 'ADD_STUDENT', students});
       });
   };
-  console.log("E")
 }

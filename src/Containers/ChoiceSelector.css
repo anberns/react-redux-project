@@ -30,3 +30,12 @@
 .voilet{
   background-color: plum;
 }
+
+#tempLanding {
+  margin-top: 50px;
+}
+
+#tempNotes {
+  width: 80%;
+  font-family: sans-serif;
+}
